@@ -20,6 +20,7 @@ $testcase = is_alpha($keyword);
 //echo $testcase;
 
 function is_number($keyword2) {
+
     if ($keyword2 == NULL) {
         echo "No input has been recieved.";
     } else {
@@ -29,12 +30,21 @@ function is_number($keyword2) {
             echo "This is NOT a valid number";
         } else {
             for ($i = 1; $i <= (count($pieces) - 1); $i++) {
-                if (strlen($pieces[$i]) != 3) {
-                    echo "This is NOT a valid number";
+                if (strlen($pieces[$i]) == 3) {
+                    $numResults = 1;
                 } else {
-                    echo "This is a valid number...YAY!";
+                    $numResults = 0;
                 }
             }
+        }
+    }
+    if (isset($numResults)) {
+
+
+        if ($numResults == 1) {
+            echo "This is a valid number...YAY!";
+        } else {
+            echo "This is NOT a valid number";
         }
     }
 }
